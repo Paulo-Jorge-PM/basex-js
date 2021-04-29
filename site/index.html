@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Paulo Martins">
+    <meta name="description" content="Website.">
+    <meta name="keywords" content="html,js,css">
+    
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        td {
+            border:1px solid gray;
+            padding:5px 10px;
+        }
+    </style>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="basex.js"></script>
+    
+</head>
+<body>
+
+<div id="wrapper">
+<header>
+  <h1>Title</h1>
+</header>
+
+<nav>
+    <ul id="nav"> 
+        <li>menu item</li>  
+        <li>menu item</li> 
+        <li>menu item</li>  
+        <li>menu item</li> 
+    </ul> 
+</nav>
+
+<main style="padding:50px;">
+<h1>Tabela</h1>
+
+<xpath style="visibility:hidden;"></xpath>
+<script>
+    basex(db='pokedex', 
+    query='//pokemon',
+    subqueries=['//species', '//abilities//ability[1]', '//DEF'],
+    template='<tr><td><!--xpath--></td><td><!--xpath--></td><td><!--xpath--></td></tr>',
+    before='<table><tr><td>Pokémon</td><td>Ability[1]</td><td>DEF</td></tr>',
+    after='</table>'
+);
+</script>
+
+</main>
+
+<footer style="display:block;position:fixed;bottom:0px;text-align:center;padding:0px;margin:0px;overflow:hidden;width:100%;">
+  2021 - Paulo Martins
+</footer>
+
+</div><!-- wrapper -->
+
+<!-- Javascript -->
+
+<script>
+$( document ).ready(function() {
+    //basex();
+});
+</script>
+
+</body>
+</html>
